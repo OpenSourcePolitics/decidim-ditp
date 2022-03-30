@@ -3,6 +3,9 @@
 ## Fix results date format
 * `app/views/decidim/accountability/results/_results_leaf.html.erb`
 * `app/views/decidim/accountability/results/_show_leaf.html.erb`
+```ruby
+  l result.start_date, format: :decidim_short
+```
 
 ## Load decidim-awesome assets only if dependencie is present
 * `app/views/layouts/decidim/_head.html.erb:33`
