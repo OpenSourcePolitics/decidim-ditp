@@ -11,6 +11,18 @@ en:
   decidim:
     accessibility:
       skip_button: Skip button
+    accountability:
+      models:
+        result:
+          fields:
+            end_date: End date
+            progress: Progress
+            start_date: Start date
+            status: Status
+            title: Title
+        status:
+          fields:
+            description: Description
     admin:
       participatory_space_private_users:
         create:

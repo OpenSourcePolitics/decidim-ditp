@@ -39,7 +39,7 @@ describe "Homepage", type: :system do
 
       it "includes the official organization links and images" do
         expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
-        expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")
+        expect(page).to have_selector(".fr-logo")
       end
 
       context "and the organization has the omnipresent banner enabled" do
@@ -152,7 +152,7 @@ describe "Homepage", type: :system do
         end
 
         it "includes links to them" do
-          within ".main-footer" do
+          within ".fr-footer" do
             [static_page_1, static_page_2].each do |static_page|
               expect(page).to have_content(static_page.title["en"])
             end
