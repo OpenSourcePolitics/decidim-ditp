@@ -58,6 +58,7 @@
 
   &:focus {
     border-color: #238ff7;
+
     option:checked {
       background: #238ff7;
       color: white;
@@ -117,5 +118,13 @@
         color: white;
       }
     }
+  }
+}
+
+.breadcrumb {
+  margin: 2em 0;
+
+  a:not(:last-child):after {
+    content: " > ";
   }
 }

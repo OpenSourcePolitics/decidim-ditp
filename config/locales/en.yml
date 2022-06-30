@@ -100,6 +100,9 @@ en:
           actions:
             osp_authorization_handler: Verify with the identity verification form
             osp_authorization_workflow: Verify with the identity verification form
+    breadcrumb:
+      home: "Home"
+      pages: "Pages"
   faker:
     address:
       country_code:
