@@ -17,10 +17,7 @@ describe "Assemblies", type: :system do
   end
 
   let!(:proposals_component) { create(:component, :published, participatory_space: assembly, manifest_name: :proposals) }
-  let!(:meetings_component) { create(:component, :unpublished, participatory_space: assembly, manifest_name: :meetings) }
-
-  let(:proposals_component_path) { Decidim::EngineRouter.main_proxy(proposals_component) }
-  let(:meetings_component_path) { Decidim::EngineRouter.main_proxy(meetings_component) }
+  let!(:meetings_component) { create(:component, :published, participatory_space: assembly, manifest_name: :meetings) }
 
   before do
     create_list(:proposal, 3, component: proposals_component)
@@ -38,28 +35,28 @@ describe "Assemblies", type: :system do
 
   context "when visiting proposals component" do
     before do
-      visit proposals_component_path
+      click_link translated(proposals_component.name)
     end
 
     it "renders a breadcrumb" do
       within ".breadcrumb" do
         expect(page).to have_content "Home"
         expect(page).to have_content(translated(assembly.title))
-        expect(page).to have_content "Proposals"
+        expect(page).to have_content translated(proposals_component.name)
       end
     end
   end
 
   context "when visiting meetings component" do
     before do
-      visit meetings_component_path
+      click_link translated(meetings_component.name)
     end
 
     it "renders a breadcrumb" do
       within ".breadcrumb" do
         expect(page).to have_content "Home"
         expect(page).to have_content(translated(assembly.title))
-        expect(page).to have_content "Meetings"
+        expect(page).to have_content translated(meetings_component.name)
       end
     end
   end
