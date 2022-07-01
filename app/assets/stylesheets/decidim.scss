@@ -121,10 +121,40 @@
   }
 }
 
-.breadcrumb {
+.fr-breadcrumb {
   margin: 2em 0;
 
-  a:not(:last-child):after {
-    content: " > ";
+  ol {
+    display: flex;
+
+    @media screen and (max-width: 50em) {
+      display: grid;
+    }
+  }
+
+  a {
+    color: rgb(102, 102, 102);
+    text-decoration: underline;
+  }
+
+  a:active {
+    text-decoration: none;
+  }
+
+  .fr-breadcrumb__list li:not(:first-child)::before {
+    flex: 0 0 auto;
+    display: inline-block;
+    vertical-align: calc((0.75em - var(--icon-size)) * 0.5);
+    background-color: currentColor;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-image: url("https://main--ds-gouv.netlify.app/dist/icons/system/arrow-right-s-line.svg");
+    mask-image: url("https://main--ds-gouv.netlify.app/dist/icons/system/arrow-right-s-line.svg");
+    --icon-size: 1rem;
+    content: "";
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
   }
 }
