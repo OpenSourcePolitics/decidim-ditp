@@ -14,9 +14,9 @@ describe "Breadcrumb Static pages", type: :system do
   context "when visiting a single page with topic" do
     it "renders a breadcrumb" do
       within ".breadcrumb" do
-        expect(page1).to have_content "Home"
-        expect(page1).to have_content translated(page1.topic.title)
-        expect(page1).to have_content translated(page1.title)
+        expect(page).to have_content "Home"
+        expect(page).to have_content translated(page1.topic.title)
+        expect(page).to have_content translated(page1.title)
       end
     end
   end
@@ -26,9 +26,9 @@ describe "Breadcrumb Static pages", type: :system do
 
     it "renders a breadcrumb" do
       within ".breadcrumb" do
-        expect(page1).to have_content "Home"
-        expect(page1).to have_content "Pages"
-        expect(page1).to have_content translated(page1.title)
+        expect(page).to have_content "Home"
+        expect(page).to have_content "Pages"
+        expect(page).to have_content translated(page1.title)
       end
     end
   end
