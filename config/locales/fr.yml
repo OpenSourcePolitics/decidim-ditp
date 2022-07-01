@@ -44,6 +44,9 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
+    breadcrumb:
+      home: Home
+      pages: Pages
     events:
       budgets:
         pending_order:
@@ -65,6 +68,9 @@ fr:
         update:
           invalid: Il y a eu une erreur lors de la mise à jour de la rencontre.
           success: La rencontre a été mise à jour avec succès.
+    profiles:
+      show:
+        conversations: Conversations
     proposals:
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
