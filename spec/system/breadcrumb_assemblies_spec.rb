@@ -27,7 +27,7 @@ describe "Assemblies", type: :system do
   end
 
   it "renders a breadcrumb" do
-    within ".breadcrumb" do
+    within ".fr-breadcrumb" do
       expect(page).to have_content "Home"
       expect(page).to have_content(translated(assembly.title))
     end
@@ -39,7 +39,7 @@ describe "Assemblies", type: :system do
     end
 
     it "renders a breadcrumb" do
-      within ".breadcrumb" do
+      within ".fr-breadcrumb" do
         expect(page).to have_content "Home"
         expect(page).to have_content(translated(assembly.title))
         expect(page).to have_content translated(proposals_component.name)
@@ -53,7 +53,7 @@ describe "Assemblies", type: :system do
     end
 
     it "renders a breadcrumb" do
-      within ".breadcrumb" do
+      within ".fr-breadcrumb" do
         expect(page).to have_content "Home"
         expect(page).to have_content(translated(assembly.title))
         expect(page).to have_content translated(meetings_component.name)
@@ -75,7 +75,7 @@ describe "Assemblies", type: :system do
     end
 
     it "renders a breadcrumb" do
-      within ".breadcrumb" do
+      within ".fr-breadcrumb" do
         expect(page).to have_content "Home"
         expect(page).to have_content(translated(assembly.parent.title))
         expect(page).to have_content(translated(assembly.title))

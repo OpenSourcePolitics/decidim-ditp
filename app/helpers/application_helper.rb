@@ -26,7 +26,10 @@ module ApplicationHelper
               concat(content_tag(:li, link_to(translated_attribute(current_participatory_space.parent.title), breadcrumb_assembly_path(current_participatory_space.parent))))
             end
             concat(content_tag(:li, link_to(translated_attribute(current_participatory_space.title), breadcrumb_assembly_path(current_participatory_space))))
-            concat(content_tag(:li, link_to(translated_attribute(current_component.name), Decidim::EngineRouter.main_proxy(current_component).root_path))) if try(:current_component)
+            if try(:current_component)
+              concat(content_tag(:li,
+                                 link_to(translated_attribute(current_component.name), Decidim::EngineRouter.main_proxy(current_component).root_path)))
+            end
           end
         end
       end
