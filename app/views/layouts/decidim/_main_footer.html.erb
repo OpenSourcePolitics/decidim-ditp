@@ -1,13 +1,30 @@
+<div class="fr-follow">
+    <div class="fr-container">
+        <div class="fr-grid-row">
+            <div class="fr-col-12">
+                <div class="fr-follow__social">
+                    <p class="fr-h5">Suivez-nous<br> sur les réseaux sociaux</p>
+                    <ul class="fr-btns-group">
+                        <li>
+                          <%= render partial: "layouts/decidim/social_media_links" %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer class="fr-footer" role="contentinfo" id="footer">
   <div class="fr-container">
     <div class="fr-footer__body">
       <div class="fr-footer__brand fr-enlarge-link">
         <a href="/" title="Retour à l’accueil">
-          <p class="fr-logo" title="république française">république<br>française</p>
+          <p class="fr-logo" title="république française">République<br>française</p>
         </a>
       </div>
       <div class="fr-footer__content">
-        <p class="fr-footer__content-desc"><%= t("layouts.decidim.footer.made_with_open_source").html_safe %><br><%= render partial: "layouts/decidim/social_media_links" %></p>
+        <p class="fr-footer__content-desc"><%= t("layouts.decidim.footer.made_with_open_source").html_safe %></p>
         <ul class="fr-footer__content-list">
           <li class="fr-footer__content-item">
             <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
@@ -36,9 +53,13 @@
           <% current_organization.static_pages.where(show_in_footer: true).each do |page| %>
             <li class="fr-footer__bottom-item"><%= link_to translated_attribute(page.title), decidim.page_path(page), :class => 'fr-footer__bottom-link' %></li>
           <% end %>
+          <li class="fr-footer__bottom-item"><a href="#consentement" class="fr-footer__bottom-link">Gestion des cookies</a></li>
         <% end %>
         <li class="fr-footer__bottom-item"><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path, :class => 'fr-footer__bottom-link' %></li>
       </ul>
+      <div class="fr-footer__bottom-copy">
+        <p>Sauf mention contraire, tous les contenus de ce site sont sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence etalab-2.0</a></p>
+      </div>
     </div>
   </div>
 </footer>
