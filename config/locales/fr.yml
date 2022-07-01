@@ -34,6 +34,29 @@ fr:
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
+    assemblies:
+      show:
+        area: Area
+        assembly_type: Assembly type
+        children: Children
+        closing_date: Closing date
+        composition: Composition
+        created_by: Created by
+        creation_date: Creation date
+        developer_group: Developer group
+        duration: Duration
+        included_at: Included at
+        indefinite_duration: Indefinite duration
+        internal_organisation: Internal organisation
+        local_area: Local area
+        participatory_scope: Participatory scope
+        participatory_structure: Participatory structure
+        private_space: Private space
+        purpose_of_action: Purpose of action
+        read_less: Read less
+        read_more: Read more
+        scope: Scope
+        target: Target
     authorization_handlers:
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
