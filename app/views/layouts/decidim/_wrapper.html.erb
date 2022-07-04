@@ -11,7 +11,7 @@ end
 %>
 
 <header role="banner" class="fr-header">
-  <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "html-block"), class: "skip" %>
+  <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "content"), class: "skip" %>
   <div class="fr-header__body">
     <div class="fr-container">
         <div class="fr-header__body-row">
@@ -118,7 +118,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
              creates a sticky footer-->
         <!-- Topbar -->
 
-        <main>
+        <main id="content">
           <%= display_flash_messages %>
           <%= yield %>
         </main>
