@@ -20,7 +20,10 @@ describe "Assemblies", type: :system do
   let!(:meetings_component) { create(:component, :published, participatory_space: assembly, manifest_name: :meetings) }
   let!(:accountability_component) { create(:component, :published, participatory_space: assembly, manifest_name: :accountability) }
   let!(:proposals) { create_list(:proposal, 3, component: proposals_component) }
-  let!(:results) { create_list(:result, 3, component: accountability_component) }
+  let!(:proposal) { proposals.first }
+  let!(:results) { create_list(:result, 3, category: category, component: accountability_component) }
+  let!(:category) { create :category, participatory_space: assembly }
+  let!(:result) { results.first }
 
   before do
     allow(Decidim).to receive(:component_manifests).and_return([
@@ -28,6 +31,7 @@ describe "Assemblies", type: :system do
                                                                  meetings_component.manifest,
                                                                  accountability_component.manifest
                                                                ])
+    accountability_component.update(settings: { scopes_enabled: true })
     switch_to_host(organization.host)
     visit decidim_assemblies.assembly_path(assembly)
   end
@@ -49,6 +53,22 @@ describe "Assemblies", type: :system do
         expect(page).to have_content "Home"
         expect(page).to have_content(translated(assembly.title))
         expect(page).to have_content translated(proposals_component.name)
+      end
+    end
+  end
+
+  context "when visiting proposal" do
+    before do
+      click_link translated(proposals_component.name)
+      click_link translated(proposal.title)
+    end
+
+    it "renders a breadcrumb" do
+      within ".fr-breadcrumb" do
+        expect(page).to have_content "Home"
+        expect(page).to have_content(translated(assembly.title))
+        expect(page).to have_content translated(proposals_component.name)
+        expect(page).to have_content translated(proposal.title)
       end
     end
   end
@@ -99,6 +119,23 @@ describe "Assemblies", type: :system do
         expect(page).to have_content "Home"
         expect(page).to have_content(translated(assembly.title))
         expect(page).to have_content translated(accountability_component.name)
+      end
+    end
+  end
+
+  context "when visiting result" do
+    before do
+      click_link translated(accountability_component.name)
+      click_link translated(category.name)
+      click_link translated(result.title)
+    end
+
+    it "renders a breadcrumb" do
+      within ".fr-breadcrumb" do
+        expect(page).to have_content "Home"
+        expect(page).to have_content(translated(assembly.title))
+        expect(page).to have_content translated(accountability_component.name)
+        expect(page).to have_content translated(result.title)
       end
     end
   end

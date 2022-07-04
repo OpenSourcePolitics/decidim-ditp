@@ -21,14 +21,35 @@ module ApplicationHelper
       content_tag :nav, class: "fr-breadcrumb" do
         content_tag :div, class: "fr-collapse", id: "breadcrumb-pages" do
           content_tag :ol, class: "fr-breadcrumb__list no-bullet-indented" do
-            concat(content_tag(:li, link_to(t("home", scope: "decidim.breadcrumb"), decidim.root_path)))
+            concat(content_tag(:li,
+                               link_to(t("home", scope: "decidim.breadcrumb"),
+                                       decidim.root_path))
+            )
+
             if current_participatory_space.parent.present?
-              concat(content_tag(:li, link_to(translated_attribute(current_participatory_space.parent.title), breadcrumb_assembly_path(current_participatory_space.parent))))
+              concat(content_tag(:li,
+                                 link_to(translated_attribute(current_participatory_space.parent.title),
+                                         breadcrumb_assembly_path(current_participatory_space.parent)))
+              )
             end
-            concat(content_tag(:li, link_to(translated_attribute(current_participatory_space.title), breadcrumb_assembly_path(current_participatory_space))))
+
+            concat(content_tag(:li,
+                               link_to(translated_attribute(current_participatory_space.title),
+                                       breadcrumb_assembly_path(current_participatory_space)))
+            )
+
             if try(:current_component)
               concat(content_tag(:li,
-                                 link_to(translated_attribute(current_component.name), Decidim::EngineRouter.main_proxy(current_component).root_path)))
+                                 link_to(translated_attribute(current_component.name),
+                                         Decidim::EngineRouter.main_proxy(current_component).root_path))
+              )
+            end
+
+            if resource_for_breadcrumb.present?
+              concat(content_tag(:li,
+                                 link_to(translated_attribute(resource_for_breadcrumb.title),
+                                         Decidim::ResourceLocatorPresenter.new(resource_for_breadcrumb).path))
+              )
             end
           end
         end
@@ -38,5 +59,17 @@ module ApplicationHelper
 
   def breadcrumb_assembly_path(path)
     Decidim::Assemblies::Engine.routes.url_helpers.assembly_path(path)
+  end
+
+  def resource_for_breadcrumb
+    return unless action_name == "show"
+    case controller_name
+    when "results"
+      result
+    when "proposals"
+      @proposal
+    else
+      return nil;
+    end
   end
 end
