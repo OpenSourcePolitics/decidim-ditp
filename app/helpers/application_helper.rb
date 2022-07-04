@@ -23,33 +23,28 @@ module ApplicationHelper
           content_tag :ol, class: "fr-breadcrumb__list no-bullet-indented" do
             concat(content_tag(:li,
                                link_to(t("home", scope: "decidim.breadcrumb"),
-                                       decidim.root_path))
-            )
+                                       decidim.root_path)))
 
             if current_participatory_space.parent.present?
               concat(content_tag(:li,
                                  link_to(translated_attribute(current_participatory_space.parent.title),
-                                         breadcrumb_assembly_path(current_participatory_space.parent)))
-              )
+                                         breadcrumb_assembly_path(current_participatory_space.parent))))
             end
 
             concat(content_tag(:li,
                                link_to(translated_attribute(current_participatory_space.title),
-                                       breadcrumb_assembly_path(current_participatory_space)))
-            )
+                                       breadcrumb_assembly_path(current_participatory_space))))
 
             if try(:current_component)
               concat(content_tag(:li,
                                  link_to(translated_attribute(current_component.name),
-                                         Decidim::EngineRouter.main_proxy(current_component).root_path))
-              )
+                                         Decidim::EngineRouter.main_proxy(current_component).root_path)))
             end
 
             if resource_for_breadcrumb.present?
               concat(content_tag(:li,
                                  link_to(translated_attribute(resource_for_breadcrumb.title),
-                                         Decidim::ResourceLocatorPresenter.new(resource_for_breadcrumb).path))
-              )
+                                         Decidim::ResourceLocatorPresenter.new(resource_for_breadcrumb).path)))
             end
           end
         end
@@ -63,13 +58,12 @@ module ApplicationHelper
 
   def resource_for_breadcrumb
     return unless action_name == "show"
+
     case controller_name
     when "results"
-      result
+      try(:result)
     when "proposals"
-      @proposal
-    else
-      return nil;
+      try(:instance_variable_get, :@proposal)
     end
   end
 end
