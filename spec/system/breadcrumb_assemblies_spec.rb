@@ -18,10 +18,16 @@ describe "Assemblies", type: :system do
 
   let!(:proposals_component) { create(:component, :published, participatory_space: assembly, manifest_name: :proposals) }
   let!(:meetings_component) { create(:component, :published, participatory_space: assembly, manifest_name: :meetings) }
+  let!(:accountability_component) { create(:component, :published, participatory_space: assembly, manifest_name: :accountability) }
+  let!(:proposals) { create_list(:proposal, 3, component: proposals_component) }
+  let!(:results) { create_list(:result, 3, component: accountability_component) }
 
   before do
-    create_list(:proposal, 3, component: proposals_component)
-    allow(Decidim).to receive(:component_manifests).and_return([proposals_component.manifest, meetings_component.manifest])
+    allow(Decidim).to receive(:component_manifests).and_return([
+                                                                 proposals_component.manifest,
+                                                                 meetings_component.manifest,
+                                                                 accountability_component.manifest
+                                                               ])
     switch_to_host(organization.host)
     visit decidim_assemblies.assembly_path(assembly)
   end
@@ -79,6 +85,20 @@ describe "Assemblies", type: :system do
         expect(page).to have_content "Home"
         expect(page).to have_content(translated(assembly.parent.title))
         expect(page).to have_content(translated(assembly.title))
+      end
+    end
+  end
+
+  context "when visiting results component" do
+    before do
+      click_link translated(accountability_component.name)
+    end
+
+    it "renders a breadcrumb" do
+      within ".fr-breadcrumb" do
+        expect(page).to have_content "Home"
+        expect(page).to have_content(translated(assembly.title))
+        expect(page).to have_content translated(accountability_component.name)
       end
     end
   end
