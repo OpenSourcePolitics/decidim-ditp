@@ -74,6 +74,8 @@ module ApplicationHelper
       try(:result)
     when "proposals"
       try(:instance_variable_get, :@proposal)
+    when "posts"
+      try(:post)
     end
   end
 end
