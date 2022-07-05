@@ -353,3 +353,25 @@
         flex-basis: calc(100% - (100% / 2));
     }
 }
+
+/* 1.6 update */
+.fr-footer__bottom-copy {
+    --text-spacing: 0 0 1rem 0;
+    margin-top: 0.5rem;
+    color: var(--text-mention-grey);
+  }
+  
+  .fr-footer__bottom-copy * {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+
+  .fr-footer__bottom-copy {
+    color: #666;
+  }
+
+
+  .fr-footer__content-list {
+    list-style-type: none;
+    margin-left: 0;
+  }

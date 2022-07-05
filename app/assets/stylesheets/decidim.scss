@@ -17,7 +17,9 @@
 
 @import "decidim/application";
 @import "fontface";
+@import "./_header.css";
 @import "./_footer.css";
+@import "./_socials.css";
 
 // .logo-cityhall {
 //   position: static;
@@ -120,6 +122,33 @@
     }
   }
 }
+
+.skip{
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+
+  &:focus,
+  &:active{
+    background-color: $primary;
+    color: $white;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    margin: 10px;
+    padding: 5px;
+    font-size: 1.4em;
+    z-index: 999;
+    outline: none;
+    position: absolute;
+    }
+  }
 
 .fr-breadcrumb {
   margin: 2em 0;
