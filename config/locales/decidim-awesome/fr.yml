@@ -79,6 +79,9 @@ fr:
         create:
           error: Erreur lors de l'envoi de l'image
           success: Image envoyée avec succès!
+    breadcrumb:
+      home: "Accueil"
+      pages: "Pages"
   layouts:
     decidim:
       admin:
