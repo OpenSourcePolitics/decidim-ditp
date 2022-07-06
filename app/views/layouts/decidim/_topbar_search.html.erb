@@ -1,0 +1,16 @@
+<div class="fr-header__search fr-modal" id="modal-476">
+    <div class="fr-container fr-container-lg--fluid">
+        <button class="fr-btn--close fr-btn" aria-controls="modal-476" title="Fermer">Fermer</button>
+        <div class="fr-search-bar" id="search-475" role="search">
+
+        <%= form_tag(decidim.search_path, method: :get, id: "form-search_topbar", class: "fr-search-bar", role: "search") do %>
+            <%= label_tag :term do %>
+                <label class="fr-label" for="term"><%= t("decidim.search.term_input_placeholder") %></label>
+                <%= text_field_tag :term, nil, class: "fr-input", placeholder: t("decidim.search.term_input_placeholder"), title: t("decidim.search.term_input_placeholder"), type: "search", style: "width: 312px" %>
+            <% end %>
+            <%= submit_tag icon("magnifying-glass", aria_label: t("decidim.search.term_input_placeholder"), role: "img"), title: t("decidim.search.term_input_placeholder"), id: :submit, class: "fr-btn" %>
+        <% end %>
+
+        </div>
+    </div>
+</div>
