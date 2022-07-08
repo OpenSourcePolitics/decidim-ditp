@@ -43,7 +43,7 @@ describe "Omniauth Publik", type: :system do
         click_link "Sign in with Publik"
 
         expect(page).to have_content("Successfully")
-        expect_user_logged
+        expect(page).to have_css(".fr-user__logged__menu")
       end
     end
   end

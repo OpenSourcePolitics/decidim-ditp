@@ -7,4 +7,4 @@
 <% if allowed_to? :read, :admin_dashboard %>
   <li role="presentation"><%= link_to t(".admin_dashboard"), decidim_admin.root_path, role: "menuitem", class: "fr-btn fr-account-menu" %></li>
 <% end %>
-<li role="presentation"><%= link_to t(".sign_out"), decidim.destroy_user_session_path, method: :delete, class: "sign-out-link", role: "menuitem", class: "fr-btn fr-account-menu" %></li>
+<li role="presentation"><%= link_to t(".sign_out"), decidim.destroy_user_session_path, method: :delete, role: "menuitem", class: "fr-btn fr-account-menu sign-out-link" %></li>

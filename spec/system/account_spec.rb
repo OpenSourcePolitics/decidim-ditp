@@ -65,8 +65,8 @@ describe "Account", type: :system do
           within "form.edit_user" do
             page.find(".change-password").click
 
-            fill_in :user_password, with: "sekritpass123"
-            fill_in :user_password_confirmation, with: "sekritpass123"
+            fill_in :user_password, with: "sekritpass123456"
+            fill_in :user_password_confirmation, with: "sekritpass123456"
 
             find("*[type=submit]").click
           end
@@ -75,7 +75,7 @@ describe "Account", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(user.reload.valid_password?("sekritpass123")).to eq(true)
+          expect(user.reload.valid_password?("sekritpass123456")).to eq(true)
         end
       end
 
