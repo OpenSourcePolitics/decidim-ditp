@@ -28,8 +28,31 @@ describe "Homepage", type: :system do
       switch_to_host(organization.host)
     end
 
-    it_behaves_like "editable content for admins" do
-      let(:target_path) { visit decidim.root_path }
+    context "behaves like editable content for admins" do
+      before do
+        relogin_as user
+        visit decidim.root_path
+      end
+
+      context "when I'm an admin user" do
+        let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+
+        it "has a link to edit the content at the admin" do
+          within ".fr-header__body-row" do
+            expect(page).not_to have_link("Edit", href: /admin/)
+          end
+        end
+      end
+
+      context "when I'm a regular user" do
+        let(:user) { create(:user, :confirmed, organization: organization) }
+
+        it "does not have a link to edit the content at the admin" do
+          within ".fr-header__body-row" do
+            expect(page).not_to have_link("Edit")
+          end
+        end
+      end
     end
 
     context "when requesting the root path" do
@@ -38,7 +61,7 @@ describe "Homepage", type: :system do
       end
 
       it "includes the official organization links and images" do
-        expect(page).to have_selector("a.logo-cityhall[href='#{official_url}']")
+        expect(page).to have_selector(".fr-header__service > a")
         expect(page).to have_selector(".fr-logo")
       end
 
