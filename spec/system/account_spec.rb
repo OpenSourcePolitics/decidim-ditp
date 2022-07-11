@@ -16,9 +16,9 @@ describe "Account", type: :system do
     it "shows the account form when clicking on the menu" do
       visit decidim.root_path
 
-      within ".topbar__user__logged" do
-        find("a", text: user.name).hover
-        find("a", text: "account").click
+      within ".fr-user__logged__menu" do
+        find("a", text: user.name).click
+        find("a", text: "My account").click
       end
 
       expect(page).to have_css("form.edit_user")
@@ -43,15 +43,15 @@ describe "Account", type: :system do
           expect(page).to have_content("successfully")
         end
 
-        within ".title-bar" do
+        within ".fr-user__logged__menu" do
           expect(page).to have_content("Nikola Tesla")
         end
 
         user.reload
 
-        within ".topbar__user__logged" do
-          find("a", text: user.name).hover
-          find("a", text: "public profile").click
+        within ".fr-user__logged__menu" do
+          find("a", text: user.name).click
+          find("a", text: "My public profile").click
         end
 
         expect(page).to have_content("example.org")
@@ -65,8 +65,8 @@ describe "Account", type: :system do
           within "form.edit_user" do
             page.find(".change-password").click
 
-            fill_in :user_password, with: "sekritpass123"
-            fill_in :user_password_confirmation, with: "sekritpass123"
+            fill_in :user_password, with: "sekritpass123456"
+            fill_in :user_password_confirmation, with: "sekritpass123456"
 
             find("*[type=submit]").click
           end
@@ -75,7 +75,7 @@ describe "Account", type: :system do
             expect(page).to have_content("successfully")
           end
 
-          expect(user.reload.valid_password?("sekritpass123")).to eq(true)
+          expect(user.reload.valid_password?("sekritpass123456")).to eq(true)
         end
       end
 

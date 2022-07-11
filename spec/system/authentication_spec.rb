@@ -32,33 +32,6 @@ describe "Authentication", type: :system do
       end
     end
 
-    context "when using another langage" do
-      before do
-        within_language_menu do
-          click_link "Castellano"
-        end
-      end
-
-      it "keeps the locale settings" do
-        find(".sign-up-link").click
-
-        within ".new_user" do
-          fill_in :registration_user_email, with: "user@example.org"
-          fill_in :registration_user_name, with: "Responsible Citizen"
-          fill_in :registration_user_nickname, with: "responsible"
-          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
-
-          check :registration_user_tos_agreement
-          check :registration_user_newsletter
-          find("*[type=submit]").click
-        end
-
-        expect(page).to have_content("Se ha enviado un mensaje con un enlace de confirmación a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.")
-        expect(last_user.locale).to eq("es")
-      end
-    end
-
     context "when being a robot" do
       it "denies the sign up" do
         find(".sign-up-link").click
@@ -109,7 +82,7 @@ describe "Authentication", type: :system do
           click_link "Sign in with Facebook"
 
           expect(page).to have_content("Successfully")
-          expect_user_logged
+          expect(page).to have_css(".fr-user__logged__menu")
         end
       end
     end
@@ -182,7 +155,7 @@ describe "Authentication", type: :system do
 
           click_link "Sign in with Twitter"
 
-          expect_user_logged
+          expect(page).to have_css(".fr-user__logged__menu")
         end
       end
     end
@@ -214,7 +187,7 @@ describe "Authentication", type: :system do
 
         click_link "Sign in with Google"
 
-        expect_user_logged
+        expect(page).to have_css(".fr-user__logged__menu")
       end
     end
 
@@ -300,17 +273,6 @@ describe "Authentication", type: :system do
         expect(page).to have_content("Signed in successfully")
         expect(page).to have_content(user.name)
       end
-
-      it "caches the omniauth buttons correctly with different languages", :caching do
-        find(".sign-in-link").click
-        expect(page).to have_content("Sign in with Facebook")
-
-        within_language_menu do
-          click_link "Català"
-        end
-
-        expect(page).to have_content("Inicia sessió amb Facebook")
-      end
     end
 
     describe "Forgot password" do
@@ -353,8 +315,8 @@ describe "Authentication", type: :system do
       end
 
       it "signs out the user" do
-        within ".topbar__user__logged" do
-          find("a", text: user.name).hover
+        within ".fr-user__logged__menu" do
+          find("a", text: user.name).click
           find(".sign-out-link").click
         end
 
@@ -584,7 +546,7 @@ describe "Authentication", type: :system do
           click_link "Sign in with Facebook"
 
           expect(page).to have_content("Successfully")
-          expect_user_logged
+          expect(page).to have_css(".fr-user__logged__menu")
         end
       end
     end

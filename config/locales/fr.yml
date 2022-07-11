@@ -123,6 +123,8 @@ fr:
         change: Modifier
         choose: Sélectionner
         currently_selected: Sélectionné
+    search:
+      term_input_placeholder: Term input placeholder
     verifications:
       authorizations:
         first_login:
@@ -150,10 +152,14 @@ fr:
         made_with_open_source: Site réalisé par <a target="_blank" href="https://opensourcepolitics.eu">Open Source Politics</a> grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer
-        navigation: Navigation
         sign_in: Se connecter
         sign_up: S'inscrire
       user_menu:
         account: Mon compte
+        admin_dashboard: Admin dashboard
         conversations: Conversations
         notifications: Notifications
+        profile: Profile
+        public_profile: Public profile
+        sign_out: Sign out
+        title: Titre
