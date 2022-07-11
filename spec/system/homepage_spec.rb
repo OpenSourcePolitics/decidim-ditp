@@ -28,7 +28,7 @@ describe "Homepage", type: :system do
       switch_to_host(organization.host)
     end
 
-    context "behaves like editable content for admins" do
+    context "and behaves like editable content for admins" do
       before do
         relogin_as user
         visit decidim.root_path
