@@ -155,11 +155,11 @@ en:
         sign_in: Sign in
         sign_up: Sign up
       user_menu:
-        account: Account
+        account: My account
         admin_dashboard: Admin dashboard
         conversations: Conversations
         notifications: Notifications
-        profile: Profile
-        public_profile: Public profile
+        profile: My account
+        public_profile: My public profile
         sign_out: Sign out
         title: Title
