@@ -63,12 +63,12 @@ end
                 <div class="fr-header__tools-links">
                     <ul class="fr-btns-group">
                         <li>
-                            <%= link_to t("layouts.decidim.header.sign_in"), decidim.new_user_session_path, class: "fr-btn fr-icon-lock-line sign-in-link" %>
-                        </li>
-                        <li>
                             <% if current_organization.sign_up_enabled? %>
                             <%= link_to t("layouts.decidim.header.sign_up"), decidim.new_user_registration_path, class: "fr-btn fr-icon-account-line sign-up-link" %>
                             <% end %>
+                        </li>
+                        <li>
+                            <%= link_to t("layouts.decidim.header.sign_in"), decidim.new_user_session_path, class: "fr-btn fr-icon-account-circle-fill sign-in-link fr-btn--icon-left fr-btn--tertiary" %>
                         </li>
                     </ul>
                 </div>
