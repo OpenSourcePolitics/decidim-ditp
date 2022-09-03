@@ -13580,6 +13580,7 @@
    font-weight: bold;
    font-size: 0.875rem;
    line-height: 1.5rem;
+   align-items: center;
  }
  
  .fr-footer__content-link:not(:hover):not(:active) {
