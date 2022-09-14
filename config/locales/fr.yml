@@ -34,6 +34,9 @@ fr:
           evaluating: |-
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
+    application:
+      documents:
+        related_documents: Documents à consulter
     assemblies:
       show:
         area: Area

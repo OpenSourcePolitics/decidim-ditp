@@ -1,0 +1,10 @@
+<div class="fr-download fr-enlarge-link fr-download--card">
+  <p>
+    <a href="<%= document.url %>" download class="fr-download__link">
+      <%= attachment_title(document) %> <span class="fr-download__detail"><%= document.file_type %> – <%= number_to_human_size(document.file_size) %></span>
+    </a>
+  </p>
+  <% if document.description.present? %>
+    <p class="fr-download__desc"><%= translated_attribute(document.description) %></p>
+  <% end %>
+</div>
