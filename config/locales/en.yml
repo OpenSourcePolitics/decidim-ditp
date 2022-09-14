@@ -34,6 +34,9 @@ en:
           evaluating: |-
             This amendment for %{amendable_type} %{proposal_link}
             is in evaluation state.
+    application:
+      documents:
+        related_documents: Related documents
     assemblies:
       show:
         area: Area
