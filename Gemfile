@@ -2,22 +2,22 @@
 
 source "https://rubygems.org"
 
-DECIDIM_VERSION = "release/0.24-stable"
+DECIDIM_VERSION = "release/0.26-stable"
 
 ruby RUBY_VERSION
 
 gem "decidim", git: "https://github.com/decidim/decidim.git", branch: DECIDIM_VERSION
 
-gem "decidim-decidim_awesome", "~> 0.7.0"
-gem "decidim-homepage_interactive_map", git: "https://github.com/OpenSourcePolitics/decidim-module-homepage_interactive_map.git", branch: "master"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: "master"
-gem "omniauth-publik", git: "https://github.com/OpenSourcePolitics/omniauth-publik", branch: "v0.0.9"
+gem "decidim-decidim_awesome", "~> 0.8.3"
+gem "decidim-homepage_interactive_map", git: "https://github.com/OpenSourcePolitics/decidim-module-homepage_interactive_map.git", branch: DECIDIM_VERSION
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer.git", branch: DECIDIM_VERSION
+gem "omniauth-publik", git: "https://github.com/OpenSourcePolitics/omniauth-publik"
 
 gem "bootsnap", "~> 1.4"
 
 gem "dotenv-rails"
 
-gem "puma", "~> 5.3.1"
+gem "puma", ">= 5.5.1"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.14"
