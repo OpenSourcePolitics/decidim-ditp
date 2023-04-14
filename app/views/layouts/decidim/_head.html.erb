@@ -18,11 +18,11 @@
 <meta property="og:image" content="<%= decidim_meta_image_url %>">
 
 <%= favicon %>
-<%= stylesheet_link_tag "application", media: "all", integrity: true %>
+<%= stylesheet_pack_tag "application", media: "all", integrity: true %>
 <%= invisible_captcha_styles %>
 <%= organization_colors %>
-<%= javascript_include_tag "decidim/confirm", integrity: true %>
-<%= javascript_include_tag "application", integrity: true %>
+<%= javascript_pack_tag "decidim/confirm", integrity: true %>
+<%= javascript_pack_tag "application", integrity: true %>
 <%= foundation_datepicker_locale_tag %>
 
 <%= render partial: "layouts/decidim/head_extra" %>
@@ -31,8 +31,8 @@
 <%= content_for :header_snippets %>
 
 <% if defined?(Decidim::DecidimAwesome).present? %>
-  <%= stylesheet_link_tag    "decidim/decidim_awesome/awesome_application", media: "all" %>
-  <%= stylesheet_link_tag(tenant_stylesheets, media: "all") if tenant_stylesheets %>
+  <%= stylesheet_pack_tag    "decidim/decidim_awesome/awesome_application", media: "all" %>
+  <%= stylesheet_pack_tag(tenant_stylesheets, media: "all") if tenant_stylesheets %>
   <%= render(partial: "layouts/decidim/decidim_awesome/custom_styles") if awesome_custom_styles %>
-  <%= javascript_include_tag "decidim/decidim_awesome/awesome_application" %>
+  <%= javascript_pack_tag "decidim/decidim_awesome/awesome_application" %>
 <% end %>
