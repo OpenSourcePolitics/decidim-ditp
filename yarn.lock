@@ -2793,10 +2793,10 @@
   dependencies:
     "typo-js" "*"
 
-"codemirror@^5.33.0", "codemirror@^5.65.12", "codemirror@^5.65.3":
-  "integrity" "sha512-z2jlHBocElRnPYysN2HAuhXbO3DNB0bcSKmNz3hcWR2Js2Dkhc1bEOxG93Z3DeUrnm+qx56XOY5wQmbP5KY0sw=="
-  "resolved" "https://registry.npmjs.org/codemirror/-/codemirror-5.65.12.tgz"
-  "version" "5.65.12"
+"codemirror@^5.33.0", "codemirror@^5.65.13", "codemirror@^5.65.3":
+  "integrity" "sha512-SVWEzKXmbHmTQQWaz03Shrh4nybG0wXx2MEu3FO4ezbPW8IbnZEd5iGHGEffSUaitKYa3i+pHpBsSvw8sPHtzg=="
+  "resolved" "https://registry.npmjs.org/codemirror/-/codemirror-5.65.13.tgz"
+  "version" "5.65.13"
 
 "color-convert@^1.9.0", "color-convert@^1.9.3":
   "integrity" "sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg=="
@@ -4819,10 +4819,10 @@
   "resolved" "https://registry.npmjs.org/hex-color-regex/-/hex-color-regex-1.1.0.tgz"
   "version" "1.1.0"
 
-"highlight.js@^11.7.0":
-  "integrity" "sha512-1rRqesRFhMO/PRF+G86evnyJkCgaZFOI+Z6kdj15TA18funfoqJXvgPCLSf0SWq3SRfg1j3HlDs8o4s3EGq1oQ=="
-  "resolved" "https://registry.npmjs.org/highlight.js/-/highlight.js-11.7.0.tgz"
-  "version" "11.7.0"
+"highlight.js@^11.8.0":
+  "integrity" "sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg=="
+  "resolved" "https://registry.npmjs.org/highlight.js/-/highlight.js-11.8.0.tgz"
+  "version" "11.8.0"
 
 "hoist-non-react-statics@^3.3.2":
   "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
