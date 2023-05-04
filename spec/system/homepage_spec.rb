@@ -249,9 +249,9 @@ describe "Homepage", type: :system do
               expect(page).to have_no_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
-                                static_page_topic1.title["en"],
-                                href: "/pages/#{static_page_topic1_page2.slug}"
-                              )
+                static_page_topic1.title["en"],
+                href: "/pages/#{static_page_topic1_page2.slug}"
+              )
             end
           end
 
@@ -267,13 +267,13 @@ describe "Homepage", type: :system do
               expect(page).to have_no_content(static_page_topic3.title["en"])
 
               expect(page).to have_link(
-                                static_page_topic1.title["en"],
-                                href: "/pages/#{static_page_topic1_page1.slug}"
-                              )
+                static_page_topic1.title["en"],
+                href: "/pages/#{static_page_topic1_page1.slug}"
+              )
               expect(page).to have_link(
-                                static_page_topic2.title["en"],
-                                href: "/pages/#{static_page_topic2_page1.slug}"
-                              )
+                static_page_topic2.title["en"],
+                href: "/pages/#{static_page_topic2_page1.slug}"
+              )
             end
           end
         end
