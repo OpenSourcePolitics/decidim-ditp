@@ -7,6 +7,7 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       helper ProposalWizardHelper
       helper ParticipatoryTextsHelper
+      helper UserGroupHelper
       include Decidim::ApplicationHelper
       include Flaggable
       include Withdrawable
@@ -27,20 +28,20 @@ module Decidim
       def index
         if component_settings.participatory_texts_enabled?
           @proposals = Decidim::Proposals::Proposal
-                       .where(component: current_component)
-                       .published
-                       .not_hidden
-                       .only_amendables
-                       .includes(:category, :scope)
-                       .order(position: :asc)
+                         .where(component: current_component)
+                         .published
+                         .not_hidden
+                         .only_amendables
+                         .includes(:category, :scope, :attachments, :coauthorships)
+                         .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
           @base_query = search
-                        .results
-                        .published
-                        .not_hidden
+                          .results
+                          .published
+                          .not_hidden
 
-          @proposals = @base_query.includes(:component, :coauthorships)
+          @proposals = @base_query.includes(:component, :coauthorships, :attachments)
           @all_geocoded_proposals = @base_query.geocoded.where.not(latitude: Float::NAN, longitude: Float::NAN)
 
           @voted_proposals = if current_user
@@ -51,8 +52,8 @@ module Decidim
                              else
                                []
                              end
-          @proposals = paginate(@proposals)
           @proposals = reorder(@proposals)
+          @proposals = paginate(@proposals)
         end
       end
 
@@ -90,10 +91,11 @@ module Decidim
       end
 
       def compare
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_2
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_component, @proposal)
-                               .all
+                                 .for(current_component, @proposal)
+                                 .all
 
         if @similar_proposals.blank?
           flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
@@ -102,7 +104,7 @@ module Decidim
       end
 
       def complete
-        enforce_permission_to :create, :proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_3
 
         @form = form_proposal_model
@@ -111,11 +113,13 @@ module Decidim
       end
 
       def preview
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_4
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def publish
+        enforce_permission_to :edit, :proposal, proposal: @proposal
         @step = :step_4
         PublishProposal.call(@proposal, current_user) do
           on(:ok) do

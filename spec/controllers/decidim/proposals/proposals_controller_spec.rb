@@ -31,15 +31,15 @@ module Decidim
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template(:index)
             expect(assigns(:proposals).order_values).to eq(
-              [
-                Decidim::Proposals::Proposal.arel_table[
-                  Decidim::Proposals::Proposal.primary_key
-                ] * Arel.sql("RANDOM()")
-              ]
-            )
+                                                          [
+                                                            Decidim::Proposals::Proposal.arel_table[
+                                                              Decidim::Proposals::Proposal.primary_key
+                                                            ] * Arel.sql("RANDOM()")
+                                                          ]
+                                                        )
             expect(assigns(:proposals).order_values.map(&:to_sql)).to eq(
-              ["\"decidim_proposals_proposals\".\"id\" * RANDOM()"]
-            )
+                                                                        ["\"decidim_proposals_proposals\".\"id\" * RANDOM()"]
+                                                                      )
           end
 
           it "sets two different collections" do
@@ -202,6 +202,48 @@ module Decidim
         end
       end
 
+      describe "access links from creating proposal steps" do
+        let!(:component) { create(:proposal_component, :with_creation_enabled) }
+        let!(:current_user) { create(:user, :confirmed, organization: component.organization) }
+        let!(:proposal_extra) { create(:proposal, :draft, component: component, users: [current_user]) }
+        let!(:params) do
+          {
+            id: proposal_extra.id,
+            proposal: proposal_params
+          }
+        end
+
+        before { sign_in user }
+
+        context "when you try to preview a proposal created by another user" do
+          it "will not render the preview page" do
+            get :preview, params: params
+            expect(subject).not_to render_template(:preview)
+          end
+        end
+
+        context "when you try to complete a proposal created by another user" do
+          it "will not render the complete page" do
+            get :complete, params: params
+            expect(subject).not_to render_template(:complete)
+          end
+        end
+
+        context "when you try to compare a proposal created by another user" do
+          it "will not render the compare page" do
+            get :compare, params: params
+            expect(subject).not_to render_template(:compare)
+          end
+        end
+
+        context "when you try to publish a proposal created by another user" do
+          it "will not render the publish page" do
+            post :publish, params: params
+            expect(subject).not_to render_template(:publish)
+          end
+        end
+      end
+
       describe "withdraw a proposal" do
         let(:component) { create(:proposal_component, :with_creation_enabled) }
 
@@ -234,7 +276,7 @@ module Decidim
         end
 
         describe "when current user is NOT the author of the proposal" do
-          let(:current_user) { create(:user, organization: component.organization) }
+          let(:current_user) { create(:user, :confirmed, organization: component.organization) }
           let(:proposal) { create(:proposal, component: component, users: [current_user]) }
 
           context "and the proposal has no supports" do
