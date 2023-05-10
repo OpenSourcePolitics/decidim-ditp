@@ -1,0 +1,197 @@
+// This is a file that can be overridden by the application in order to override styles
+// Notice that this file is included at the very end of the stylesheets packs to have
+// more priority
+//
+// To override CSS variables or Foundation settings use _decidim-settings.scss
+//
+// By default this is empty.
+
+// // Variables
+//
+// $primary: #ef604d;
+// $secondary: #599aa6;
+// $success: #57d685;
+// $warning: #ffae00;
+// $alert: #ec5840;
+//
+// $proposals: #238FF7;
+// $actions: #57D685;
+// $debates: #FA6C96;
+// $meetings: #FABC6C;
+//
+// $twitter: #55acee;
+// $facebook: #3b5998;
+// $google: #dd4b39;
+
+@import "fontface";
+@import "header";
+@import "footer";
+@import "socials";
+@import "decidim/email-custom";
+
+// .logo-cityhall {
+//   position: static;
+//   margin: 0;
+//   @media print, screen and (min-width: 40em) {
+//     text-align: left;
+//   }
+// }
+
+.initiative-types-select {
+  white-space: normal !important;
+  word-break: break-all !important;
+  overflow-wrap: break-word !important;
+
+  padding-bottom: 0;
+
+  option {
+    position: relative;
+    display: block;
+    margin: 0 -15px 5px 0;
+    padding: 5px 10px;
+    font-size: 90%;
+    line-height: 17px;
+    color: $secondary;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: normal !important;
+    word-break: break-all !important;
+    overflow-wrap: break-word !important;
+    text-overflow: clip;
+    overflow-x: hidden;
+
+    &:hover {
+      background: #e8e8e8;
+    }
+  }
+
+  &:focus {
+    border-color: #238ff7;
+
+    option:checked {
+      background: #238ff7;
+      color: white;
+    }
+  }
+}
+
+.highlighted_proposals .card--proposal {
+  width: 100%;
+}
+
+// Hide autorisation handler profile tab
+// #user-settings-tabs > li:nth-child(3) {
+//   display: none;
+// }
+
+.main-footer__badge {
+  text-align: center;
+}
+
+@media print, screen and (min-width: 64em) {
+  .main-footer__badge {
+    position: relative;
+    text-align: left;
+  }
+}
+
+.topbar div {
+  align-items: center;
+}
+
+.mini-footer .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .decidim-logo {
+    display: flex;
+    flex-grow: 0;
+    width: auto;
+    margin: 0 0.5rem;
+  }
+
+  img {
+    height: 1rem;
+    margin-top: -0.25rem;
+  }
+
+  .mf-text {
+    font-size: 80%;
+    line-height: 1rem;
+
+    a {
+      font-weight: 600;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+.skip{
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+
+  &:focus,
+  &:active{
+    background-color: $primary;
+    color: $white;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: auto;
+    margin: 10px;
+    padding: 5px;
+    font-size: 1.4em;
+    z-index: 999;
+    outline: none;
+    position: absolute;
+  }
+}
+
+.fr-breadcrumb {
+  margin: 2em 0;
+
+  ol {
+    display: flex;
+
+    @media screen and (max-width: 50em) {
+      display: grid;
+    }
+  }
+
+  a {
+    color: rgb(102, 102, 102);
+    text-decoration: underline;
+  }
+
+  a:active {
+    text-decoration: none;
+  }
+
+  .fr-breadcrumb__list li:not(:first-child)::before {
+    flex: 0 0 auto;
+    display: inline-block;
+    vertical-align: calc((0.75em - var(--icon-size)) * 0.5);
+    background-color: currentColor;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-image: url("https://main--ds-gouv.netlify.app/dist/icons/system/arrow-right-s-line.svg");
+    mask-image: url("https://main--ds-gouv.netlify.app/dist/icons/system/arrow-right-s-line.svg");
+    --icon-size: 1rem;
+    content: "";
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+  }
+}

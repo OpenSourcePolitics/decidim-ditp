@@ -11,18 +11,6 @@ fr:
   decidim:
     accessibility:
       skip_button: Passer au contenu principal
-    accountability:
-      models:
-        result:
-          fields:
-            end_date: Date de fin
-            progress: Progression
-            start_date: Date de début
-            status: Statut
-            title: Titre
-        status:
-          fields:
-            description: Description
     admin:
       participatory_space_private_users:
         create:
@@ -37,29 +25,6 @@ fr:
     application:
       documents:
         related_documents: Documents à consulter
-    assemblies:
-      show:
-        area: Area
-        assembly_type: Assembly type
-        children: Children
-        closing_date: Closing date
-        composition: Composition
-        created_by: Created by
-        creation_date: Creation date
-        developer_group: Developer group
-        duration: Duration
-        included_at: Included at
-        indefinite_duration: Indefinite duration
-        internal_organisation: Internal organisation
-        local_area: Local area
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        private_space: Private space
-        purpose_of_action: Purpose of action
-        read_less: Read less
-        read_more: Read more
-        scope: Scope
-        target: Target
     authorization_handlers:
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
@@ -80,20 +45,6 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous avez commencé à voter sur la concertation "%{participatory_space_title}"
           email_subject: Votre vote est toujours en attente sur la concertation %{participatory_space_title}
           notification_title: Votre vote pour le budget <a href="%{resource_path}">%{resource_title}</a> attend d'être finalisé sur la concertation %{participatory_space_title}
-    meetings:
-      directory:
-        meetings:
-          index:
-            all: Tous
-      meeting:
-        not_allowed: Vous n'êtes pas autorisé à vous inscrire à cette rencontre.
-      meetings:
-        create:
-          invalid: Il y a eu une erreur lors de la création de la rencontre.
-          success: La rencontre a été créée avec succès.
-        update:
-          invalid: Il y a eu une erreur lors de la mise à jour de la rencontre.
-          success: La rencontre a été mise à jour avec succès.
     profiles:
       show:
         conversations: Conversations
