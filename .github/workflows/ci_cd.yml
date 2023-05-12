@@ -1,0 +1,157 @@
+name: "CI/CD"
+on: [push]
+
+env:
+  CI: "true"
+  SIMPLECOV: "true"
+  RSPEC_FORMAT: "documentation"
+  RUBY_VERSION: 2.7.5
+  RAILS_ENV: test
+  NODE_VERSION: 16.9.1
+  RUBYOPT: '-W:no-deprecated'
+
+jobs:
+  lint:
+    name: Lint code
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
+        if: "github.ref != 'refs/heads/develop'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: OpenSourcePolitics/lint-action@master
+        with:
+          ruby_version: ${{ env.RUBY_VERSION }}
+          node_version: ${{ env.NODE_VERSION }}
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    services:
+      postgres:
+        image: postgres:11
+        ports: [ "5432:5432" ]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      RAILS_ENV: test
+      # Set locales available for i18n tasks
+      ENFORCED_LOCALES: "en,fr"
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+        if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: OpenSourcePolitics/rspec-action@master
+        with:
+          command: 'bundle exec rspec --exclude-pattern "spec/system/**/*_spec.rb"'
+          prepare_command: "bundle exec rails db:create db:migrate"
+  system_tests:
+    name: System tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11
+        ports: [ "5432:5432" ]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      RAILS_ENV: test
+      # Set locales available for i18n tasks
+      ENFORCED_LOCALES: "en"
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+        if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: OpenSourcePolitics/rspec-action@master
+        with:
+          command: 'bundle exec rspec "spec/system"'
+          prepare_command: "bundle exec rails db:create db:migrate"
+  test_build:
+    name: Test build docker image
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11
+        ports: [ "5432:5432" ]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: host.docker.internal
+    steps:
+      - uses: OpenSourcePolitics/build-and-test-images-action@master
+        with:
+          registry: ${{ vars.REGISTRY_ENDPOINT }}
+          namespace: ${{ vars.REGISTRY_NAMESPACE }}
+          image_name: ${{ vars.IMAGE_NAME }}
+          tag: ${{ github.ref }}
+          password: ${{ secrets.TOKEN }}
+          database_username: ${{ env.DATABASE_USERNAME }}
+          database_password: ${{ env.DATABASE_PASSWORD }}
+          database_host: ${{ env.DATABASE_HOST }}
+  build_and_push_image_dev:
+    name: Build and push image to Registry
+    if: "github.ref == 'refs/heads/develop'"
+    needs: [ lint, tests, system_tests, test_build ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: OpenSourcePolitics/build-and-push-images-action@master
+        with:
+          registry: ${{ vars.REGISTRY_ENDPOINT }}
+          namespace: ${{ vars.REGISTRY_NAMESPACE }}
+          password: ${{ secrets.TOKEN }}
+          image_name: ${{ vars.IMAGE_NAME }}
+          tag: "develop-${{ github.sha }}"
+  generate_release:
+    name: Generate release
+    needs: [ lint, tests, system_tests, test_build ]
+    if: "github.ref == 'refs/heads/master'"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mathieudutour/github-tag-action@v6.1
+        name: Bump version and push tag
+        id: tag_version
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ncipollo/release-action@v1
+        name: Create a GitHub release
+        with:
+          generateReleaseNotes: true
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+      - uses: OpenSourcePolitics/build-and-push-images-action@master
+        with:
+          registry: ${{ vars.REGISTRY_ENDPOINT }}
+          namespace: ${{ vars.REGISTRY_NAMESPACE }}
+          password: ${{ secrets.TOKEN }}
+          image_name: ${{ vars.IMAGE_NAME }}
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+
