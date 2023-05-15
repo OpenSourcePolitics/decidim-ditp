@@ -155,71 +155,6 @@
    box-shadow: 0 -1px 0 0 var(--border-default-blue-france);
  }
  
- .fr-follow .fr-btn--facebook::before {
-   -webkit-mask-image: url("../../icons/logo/facebook-circle-fill.svg");
-   mask-image: url("../../icons/logo/facebook-circle-fill.svg");
- }
- 
- .fr-follow .fr-btn--twitter::before {
-   -webkit-mask-image: url("../../icons/logo/twitter-fill.svg");
-   mask-image: url("../../icons/logo/twitter-fill.svg");
- }
- 
- .fr-follow .fr-btn--linkedin::before {
-   -webkit-mask-image: url("../../icons/logo/linkedin-box-fill.svg");
-   mask-image: url("../../icons/logo/linkedin-box-fill.svg");
- }
- 
- .fr-follow .fr-btn--youtube::before {
-   -webkit-mask-image: url("../../icons/logo/youtube-fill.svg");
-   mask-image: url("../../icons/logo/youtube-fill.svg");
- }
- 
- .fr-follow .fr-btn--dailymotion::before {
-   -webkit-mask-image: url("../../icons/logo/fr--dailymotion-fill.svg");
-   mask-image: url("../../icons/logo/fr--dailymotion-fill.svg");
- }
- 
- .fr-follow .fr-btn--instagram::before {
-   -webkit-mask-image: url("../../icons/logo/instagram-fill.svg");
-   mask-image: url("../../icons/logo/instagram-fill.svg");
- }
- 
- .fr-follow .fr-btn--github::before {
-   -webkit-mask-image: url("../../icons/logo/github-fill.svg");
-   mask-image: url("../../icons/logo/github-fill.svg");
- }
- 
- .fr-follow .fr-btn--tiktok::before {
-   -webkit-mask-image: url("../../icons/logo/fr--tiktok-fill.svg");
-   mask-image: url("../../icons/logo/fr--tiktok-fill.svg");
- }
- 
- .fr-follow .fr-btn--snapchat::before {
-   -webkit-mask-image: url("../../icons/logo/snapchat-fill.svg");
-   mask-image: url("../../icons/logo/snapchat-fill.svg");
- }
- 
- .fr-follow .fr-btn--telegram::before {
-   -webkit-mask-image: url("../../icons/logo/telegram-fill.svg");
-   mask-image: url("../../icons/logo/telegram-fill.svg");
- }
- 
- .fr-follow .fr-btn--twitch::before {
-   -webkit-mask-image: url("../../icons/logo/twitch-fill.svg");
-   mask-image: url("../../icons/logo/twitch-fill.svg");
- }
- 
- .fr-follow .fr-btn--vimeo::before {
-   -webkit-mask-image: url("../../icons/logo/vimeo-fill.svg");
-   mask-image: url("../../icons/logo/vimeo-fill.svg");
- }
- 
- .fr-follow .fr-btn--mastodon::before {
-   -webkit-mask-image: url("../../icons/logo/mastodon-fill.svg");
-   mask-image: url("../../icons/logo/mastodon-fill.svg");
- }
- 
  .fr-follow .fr-links-group {
    --ul-type: none;
    --ol-type: none;
@@ -307,8 +242,6 @@
    height: var(--icon-size);
    -webkit-mask-size: 100% 100%;
    mask-size: 100% 100%;
-   -webkit-mask-image: url("../../icons/logo/facebook-circle-fill.svg");
-   mask-image: url("../../icons/logo/facebook-circle-fill.svg");
    content: "";
  }
  
@@ -321,8 +254,6 @@
    height: var(--icon-size);
    -webkit-mask-size: 100% 100%;
    mask-size: 100% 100%;
-   -webkit-mask-image: url("../../icons/logo/twitter-fill.svg");
-   mask-image: url("../../icons/logo/twitter-fill.svg");
    content: "";
  }
  
@@ -335,8 +266,6 @@
    height: var(--icon-size);
    -webkit-mask-size: 100% 100%;
    mask-size: 100% 100%;
-   -webkit-mask-image: url("../../icons/logo/instagram-fill.svg");
-   mask-image: url("../../icons/logo/instagram-fill.svg");
    content: "";
  }
  
@@ -349,8 +278,6 @@
    height: var(--icon-size);
    -webkit-mask-size: 100% 100%;
    mask-size: 100% 100%;
-   -webkit-mask-image: url("../../icons/logo/linkedin-box-fill.svg");
-   mask-image: url("../../icons/logo/linkedin-box-fill.svg");
    content: "";
  }
  
@@ -363,8 +290,6 @@
    height: var(--icon-size);
    -webkit-mask-size: 100% 100%;
    mask-size: 100% 100%;
-   -webkit-mask-image: url("../../icons/logo/youtube-fill.svg");
-   mask-image: url("../../icons/logo/youtube-fill.svg");
    content: "";
  }
  
@@ -515,58 +440,6 @@
      max-width: 100%;
    }
  
-   .fr-follow .fr-btn--facebook::before {
-     background-image: url("../../icons/logo/facebook-circle-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--twitter::before {
-     background-image: url("../../icons/logo/twitter-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--linkedin::before {
-     background-image: url("../../icons/logo/linkedin-box-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--youtube::before {
-     background-image: url("../../icons/logo/youtube-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--dailymotion::before {
-     background-image: url("../../icons/logo/fr--dailymotion-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--instagram::before {
-     background-image: url("../../icons/logo/instagram-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--github::before {
-     background-image: url("../../icons/logo/github-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--tiktok::before {
-     background-image: url("../../icons/logo/fr--tiktok-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--snapchat::before {
-     background-image: url("../../icons/logo/snapchat-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--telegram::before {
-     background-image: url("../../icons/logo/telegram-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--twitch::before {
-     background-image: url("../../icons/logo/twitch-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--vimeo::before {
-     background-image: url("../../icons/logo/vimeo-fill.svg");
-   }
- 
-   .fr-follow .fr-btn--mastodon::before {
-     background-image: url("../../icons/logo/mastodon-fill.svg");
-   }
- 
    .fr-follow .fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg) .fr-btn:not([class^=fr-icon-]):not([class*=" fr-icon-"]):not([class^=fr-fi-]):not([class*=" fr-fi-"])::before,
    .fr-follow .fr-btns-group:not(.fr-btns-group--sm):not(.fr-btns-group--lg) .fr-btn:not([class^=fr-icon-]):not([class*=" fr-icon-"]):not([class^=fr-fi-]):not([class*=" fr-fi-"])::after {
      background-color: transparent;
@@ -590,7 +463,6 @@
      background-color: transparent;
      background-size: 100%;
      background-repeat: no-repeat;
-     background-image: url("../../icons/logo/facebook-circle-fill.svg");
      width: 1.5rem;
      height: 1.5rem;
    }
@@ -600,7 +472,6 @@
      background-color: transparent;
      background-size: 100%;
      background-repeat: no-repeat;
-     background-image: url("../../icons/logo/twitter-fill.svg");
      width: 1.5rem;
      height: 1.5rem;
    }
@@ -610,7 +481,6 @@
      background-color: transparent;
      background-size: 100%;
      background-repeat: no-repeat;
-     background-image: url("../../icons/logo/instagram-fill.svg");
      width: 1.5rem;
      height: 1.5rem;
    }
@@ -620,7 +490,6 @@
      background-color: transparent;
      background-size: 100%;
      background-repeat: no-repeat;
-     background-image: url("../../icons/logo/linkedin-box-fill.svg");
      width: 1.5rem;
      height: 1.5rem;
    }
@@ -630,7 +499,6 @@
      background-color: transparent;
      background-size: 100%;
      background-repeat: no-repeat;
-     background-image: url("../../icons/logo/youtube-fill.svg");
      width: 1.5rem;
      height: 1.5rem;
    }
