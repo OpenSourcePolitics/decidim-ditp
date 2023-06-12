@@ -34,7 +34,7 @@ describe "Awesome custom styles", type: :system do
     end
 
     it "css is not applyied" do
-      expect(page.execute_script("return window.getComputedStyle($('body')[0]).backgroundColor")).to eq("rgb(250, 250, 250)")
+      expect(page.execute_script("return window.getComputedStyle($('body')[0]).backgroundColor")).to eq("rgb(255, 255, 255)")
     end
   end
 

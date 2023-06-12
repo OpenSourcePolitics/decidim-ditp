@@ -11,18 +11,6 @@ en:
   decidim:
     accessibility:
       skip_button: Skip button
-    accountability:
-      models:
-        result:
-          fields:
-            end_date: End date
-            progress: Progress
-            start_date: Start date
-            status: Status
-            title: Title
-        status:
-          fields:
-            description: Description
     admin:
       participatory_space_private_users:
         create:
@@ -37,29 +25,6 @@ en:
     application:
       documents:
         related_documents: Related documents
-    assemblies:
-      show:
-        area: Area
-        assembly_type: Assembly type
-        children: Children
-        closing_date: Closing date
-        composition: Composition
-        created_by: Created by
-        creation_date: Creation date
-        developer_group: Developer group
-        duration: Duration
-        included_at: Included at
-        indefinite_duration: Indefinite duration
-        internal_organisation: Internal organisation
-        local_area: Local area
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        private_space: Private space
-        purpose_of_action: Purpose of action
-        read_less: Read less
-        read_more: Read more
-        scope: Scope
-        target: Target
     authorization_handlers:
       osp_authorization_handler:
         explanation: Verify your identity by entering a unique number
@@ -80,20 +45,6 @@ en:
           email_outro: You have received this notification because you are participating in "%{participatory_space_title}"
           email_subject: Your vote is still pending in %{participatory_space_title}
           notification_title: The vote on budget <a href="%{resource_path}">%{resource_title}</a> is still waiting for your confirmation in %{participatory_space_title}
-    meetings:
-      directory:
-        meetings:
-          index:
-            all: All
-      meeting:
-        not_allowed: You are not allowed to view this meeting
-      meetings:
-        create:
-          invalid: There was a problem creating this meeting.
-          success: You have created the meeting successfully.
-        update:
-          invalid: There was a problem updating the meeting.
-          success: You have updated the meeting successfully.
     profiles:
       show:
         conversations: Conversations
