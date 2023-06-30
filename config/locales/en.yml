@@ -108,8 +108,9 @@ en:
         close_menu: Close menu
         sign_in: Sign in
         sign_up: Sign up
-        official_name: Ministère<br>chargé de la ville<br>et du logement
-        official_name_title: Ministère chargé de la ville et du logement
+        official_name: Intitulé<br>officiel
+        official_name_title: Intitulé officiel
+        baseline: baseline - précision sur l'organisation
       user_menu:
         account: My account
         admin_dashboard: Admin dashboard
