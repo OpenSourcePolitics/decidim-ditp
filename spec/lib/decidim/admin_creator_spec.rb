@@ -33,7 +33,6 @@ module Decidim
     context "when email already exists" do
       let!(:user) { create(:user, email: email) }
 
-      # It does not create a new user but retrieve the existing one
       it "does not create a new user" do
         expect { described_class.create!(environment) }.not_to change(Decidim::User, :count)
         expect(Decidim::User.last.admin).to be(true)
