@@ -8,8 +8,8 @@
 
 // // Variables
 //
-// $primary: #ef604d;
-// $secondary: #599aa6;
+$primary: #000091;
+$secondary: #f5f5fe;
 // $success: #57d685;
 // $warning: #ffae00;
 // $alert: #ec5840;
@@ -205,4 +205,8 @@
   position: absolute;
   top: auto;
   width: 100%;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-family: "Marianne", Source Sans Pro, Helvetica, Roboto, Arial, sans-serif;
 }
