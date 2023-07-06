@@ -18,7 +18,7 @@ end
             <div class="fr-header__brand fr-enlarge-link">
                 <div class="fr-header__brand-top">
                     <div class="fr-header__logo">
-                        <p class="fr-logo">République<br>française</p>
+                        <p class="fr-logo"><%== t("layouts.decidim.header.official_name") %></p>
                     </div>
                     <div class="fr-header__navbar">
                         <button class="fr-btn--search fr-btn" data-fr-opened="false" aria-controls="modal-476" id="button-477" title="Rechercher">Rechercher</button>
@@ -26,8 +26,9 @@ end
                     </div>
                 </div>
                 <div class="fr-header__service">
-                    <a href="/" title="Accueil - Partenariat pour un gouvernement ouvert">
-                        <p class="fr-header__service-title" style="margin: 0;line-height: 22px;">Partenariat pour un gouvernement ouvert</p>
+                    <a href="/" title="Accueil - <%= current_organization.name %>">
+                        <p class="fr-header__service-title" style="margin: 0;line-height: 22px;"><%= current_organization.name %></p>
+                        <p class="fr-header__service-tagline"><%== t("layouts.decidim.header.baseline") %></p>
                     </a>
                 </div>
             </div>
