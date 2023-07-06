@@ -8,8 +8,8 @@
 
 // // Variables
 //
-// $primary: #ef604d;
-// $secondary: #599aa6;
+$primary: #000091;
+$secondary: #f5f5fe;
 // $success: #57d685;
 // $warning: #ffae00;
 // $alert: #ec5840;
@@ -25,6 +25,7 @@
 
 @import "fontface";
 @import "header";
+@import "icons";
 @import "footer";
 @import "socials";
 @import "decidim/email-custom";
@@ -194,4 +195,18 @@
     margin-left: 0.25rem;
     margin-right: 0.25rem;
   }
+}
+
+.fr-nav__item.main-nav__link--active a::before {
+  bottom: 0;
+  height: 2px;
+  left: 0;
+  margin-top: 0;
+  position: absolute;
+  top: auto;
+  width: 100%;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-family: "Marianne", Source Sans Pro, Helvetica, Roboto, Arial, sans-serif;
 }
