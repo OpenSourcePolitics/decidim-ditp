@@ -9,6 +9,8 @@ fr:
       participatory_process:
         private_space: Espace privé
   decidim:
+    accessibility:
+      skip_button: Skip button
     admin:
       participatory_space_private_users:
         create:
@@ -29,6 +31,9 @@ fr:
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
     anonymous_user: Utilisateur anonyme
+    application:
+      documents:
+        related_documents: Related documents
     authorization_handlers:
       osp_authorization_handler:
         explanation: Vérifier votre identité en saisissant un numéro unique
@@ -39,6 +44,9 @@ fr:
         name: Formulaire de vérification d'identité
       osp_authorization_workflow:
         name: Procédure d'autorisation
+    breadcrumb:
+      home: Home
+      pages: Pages
     budgets:
       actions:
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
@@ -130,6 +138,9 @@ fr:
           text: Qu'est-ce-que FranceConnect ?
         forgot_password:
           ok_text: Attention, ce mot de passe est celui de votre compte local et en aucun cas celui du compte que vous utilisez au travers de FranceConnect. Il vous servira uniquement lorsque vous vous connecterez avec votre adresse mail plutôt que via FranceConnect.
+    profiles:
+      show:
+        conversations: Conversations
     proposals:
       collaborative_drafts:
         collaborative_draft:
@@ -160,6 +171,12 @@ fr:
         wizard_aside:
           back_from_collaborative_draft: Retour aux brouillons collaboratifs
           info: Vous créez un <strong>projet collaboratif</strong>.
+      create:
+        error: Il y a eu un problème lors de l'enregistrement
+        success: Succès
+      destroy_draft:
+        error: Erreur
+        success: Succès
       index:
         collaborative_drafts_list: Accéder aux brouillons collaboratifs
         new_proposal: Nouvelle proposition
@@ -170,6 +187,21 @@ fr:
             authors: Auteurs
             comments: Commentaires
             contributions: Contributions
+      proposals:
+        compare:
+          no_similars_found: Pas de propositions similaire trouvée
+      publish:
+        error: Erreur
+        success: Succès
+      update:
+        error: Il y a eu un problème lors de l'enregistrement
+        success: Proposition créée avec succès.
+      update_draft:
+        error: Il y a eu un problème lors de l'enregistrement
+        success: Succès
+      withdraw:
+        errors:
+          has_supports: This proposal can not be withdrawn because it already has supports.
     scopes:
       global: Portée générale
       picker:
@@ -177,6 +209,8 @@ fr:
         change: Modifier
         choose: Sélectionner
         currently_selected: Sélectionné
+    search:
+      term_input_placeholder: Term input placeholder
     shared:
       login_modal:
         close_modal: Fermer
@@ -246,10 +280,27 @@ fr:
   layouts:
     decidim:
       footer:
+        download_open_data: Open data
         made_with_open_source: Site réalisé par <a target="_blank" href="https://opensourcepolitics.eu">Open Source Politics</a> grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+      header:
+        baseline: baseline - précision sur l'organisation
+        close_menu: Fermer
+        official_name: Intitulé<br>officiel
+        official_name_title: Intitulé officiel
+        sign_in: Connexion
+        sign_up: Déconnexion
+      user_menu:
+        account: Mon compte
+        admin_dashboard: Admin dashboard
+        conversations: Conversations
+        notifications: Notifications
+        profile: Mon profil
+        public_profile: Mon profil public
+        sign_out: Déconnexion
+        title: Titre
   rack_attack:
     too_many_requests:
       message: Il semblerait que vous fassiez trop de requetes sur notre serveur, votre connexion a ete ralentie.
       time: 'Vous pourrez naviguer de nouveau sur notre plateforme dans :'
-      time_unit: seconds
-      title: Thank you for your participation on %{organization_name}
+      time_unit: secondes
+      title: Merci pour votre participation sur %{organization_name}
