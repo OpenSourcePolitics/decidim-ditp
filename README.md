@@ -135,3 +135,9 @@ make connect-app
 ## Database architecture (ERD)
 
 ![Architecture_decidim](https://user-images.githubusercontent.com/52420208/133789299-9458fc42-a5e7-4e3d-a934-b55c6afbc8aa.jpg)
+
+## License
+
+The code source in this repository is published by the [Direction interministérielle de la transformation publique](https://www.modernisation.gouv.fr/) under the [MIT license](LICENSE.md).
+
+The DSFR is published by the French government [on this repository](https://github.com/GouvernementFR/dsfr/).  See the DSFR license and terms of use.
