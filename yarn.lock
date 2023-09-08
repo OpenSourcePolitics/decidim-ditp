@@ -1047,13 +1047,15 @@
   "resolved" "https://registry.npmjs.org/@csstools/convert-colors/-/convert-colors-1.4.0.tgz"
   "version" "1.4.0"
 
-"@decidim/browserslist-config@file:packages/browserslist-config":
-  "resolved" "file:packages/browserslist-config"
-  "version" "0.26.5"
+"@decidim/browserslist-config@^0.26.7":
+  "integrity" "sha512-WwxVvhBPjCN//idupga/bjjx6cF31T6OgCNsLeeefvhrJub+f8qnarh1/zaIZMuOuyU42JYOY4w9BtPIdqQ8mQ=="
+  "resolved" "https://registry.npmjs.org/@decidim/browserslist-config/-/browserslist-config-0.26.7.tgz"
+  "version" "0.26.7"
 
-"@decidim/core@file:packages/core":
-  "resolved" "file:packages/core"
-  "version" "0.26.5"
+"@decidim/core@^0.26.7":
+  "integrity" "sha512-HJhS9+5QtXSMMASFa5mIlqpk2JwmEv9hSrLCXim4kXB/LPTy5mV2hwhuDNy7HikjWOgeC1w9LWCTeTbm+RhvMQ=="
+  "resolved" "https://registry.npmjs.org/@decidim/core/-/core-0.26.7.tgz"
+  "version" "0.26.7"
   dependencies:
     "@joeattardi/emoji-button" "^4.6.0"
     "@zeitiger/appendaround" "^1.0.0"
@@ -1105,27 +1107,31 @@
     "webpack" "^5.11.0"
     "webpack-cli" "^4.2.0"
 
-"@decidim/dev@file:packages/dev":
-  "resolved" "file:packages/dev"
-  "version" "0.26.5"
+"@decidim/dev@^0.26.7":
+  "integrity" "sha512-mAnfw97oKJXg0WVtqfvvfuItBzTAaCamSDQ/ALA1zvP0xF9t6gOvrUazmNOsySu87EQUKfEqLlhz5F9tOs4WSw=="
+  "resolved" "https://registry.npmjs.org/@decidim/dev/-/dev-0.26.7.tgz"
+  "version" "0.26.7"
   dependencies:
     "axe-core" "^4.1.4"
 
-"@decidim/elections@file:packages/elections":
-  "resolved" "file:packages/elections"
-  "version" "0.26.5"
+"@decidim/elections@^0.26.7":
+  "integrity" "sha512-hWorwPYVIxSgcLlpeZuTZW2cKZm+IiIk9Lba4PmAEmWC5fMx1ARqqGO168i/IomOpeWsJmsk38UndhWBiYZXHA=="
+  "resolved" "https://registry.npmjs.org/@decidim/elections/-/elections-0.26.7.tgz"
+  "version" "0.26.7"
   dependencies:
     "@decidim/decidim-bulletin_board" "0.22.3"
     "@decidim/voting_schemes-dummy" "0.22.3"
     "@decidim/voting_schemes-electionguard" "0.22.3"
 
-"@decidim/eslint-config@file:packages/eslint-config":
-  "resolved" "file:packages/eslint-config"
-  "version" "0.26.5"
+"@decidim/eslint-config@^0.26.7":
+  "integrity" "sha512-yVAdloUHIGQJfkgUJNPBo0BJxqCuV5Uj947VI52THWgErLuLp4RYE1uC0o6gjLbm5Kx3zB4LtXCrhVz7K2oXnQ=="
+  "resolved" "https://registry.npmjs.org/@decidim/eslint-config/-/eslint-config-0.26.7.tgz"
+  "version" "0.26.7"
 
-"@decidim/stylelint-config@file:packages/stylelint-config":
-  "resolved" "file:packages/stylelint-config"
-  "version" "0.26.5"
+"@decidim/stylelint-config@^0.26.7":
+  "integrity" "sha512-QvR8bnoyOvkViJnNKp1FgBpf/Esn8lQ6VPHHol5TVMutQPYNw9LNmEawQOXLSrCcSOxXHWhBbW06Muek9gxFIA=="
+  "resolved" "https://registry.npmjs.org/@decidim/stylelint-config/-/stylelint-config-0.26.7.tgz"
+  "version" "0.26.7"
 
 "@decidim/voting_schemes-dummy@0.22.3":
   "integrity" "sha512-Z5CwSUJNYW2KkoE5anAqAIwHnQHqpgGL4Xu2I7YqEn3thThlbWlY9U9Eq0O6fq7/pfBQLiAFFiBBAnCDv0HC2g=="
@@ -1137,9 +1143,10 @@
   "resolved" "https://registry.npmjs.org/@decidim/voting_schemes-electionguard/-/voting_schemes-electionguard-0.22.3.tgz"
   "version" "0.22.3"
 
-"@decidim/webpacker@file:packages/webpacker":
-  "resolved" "file:packages/webpacker"
-  "version" "0.26.5"
+"@decidim/webpacker@^0.26.7":
+  "integrity" "sha512-eh39C6V9w+fbKZhsBRIA2uvC6xtsq9hb8rVuV/mx6bOTZnX7PA675sOgkcZwrsEFOHO985ee656cOQv44KwiSg=="
+  "resolved" "https://registry.npmjs.org/@decidim/webpacker/-/webpacker-0.26.7.tgz"
+  "version" "0.26.7"
   dependencies:
     "@babel/core" "^7.13.13"
     "@babel/eslint-parser" "^7.13.14"
@@ -8014,9 +8021,9 @@
     "ajv-keywords" "^3.5.2"
 
 "schema-utils@^3.0.0":
-  "integrity" "sha512-Y5PQxS4ITlC+EahLuXaY86TXfR7Dc5lw294alXOq86JAHCihAIZfqv8nNCWvaEJvaC51uN9hbLGeV0cFBdH+Fw=="
-  "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-3.1.1.tgz"
-  "version" "3.1.1"
+  "integrity" "sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg=="
+  "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-3.3.0.tgz"
+  "version" "3.3.0"
   dependencies:
     "@types/json-schema" "^7.0.8"
     "ajv" "^6.12.5"
