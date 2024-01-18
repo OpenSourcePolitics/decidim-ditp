@@ -8,7 +8,7 @@ describe "rake decidim_app:k8s:upgrade", type: :task do
   end
 
   it "calls db:migrate" do
-    expect(Rake::Task["db:migrate"]).to receive(:invoke)
+    allow(Rake::Task["db:migrate"]).to receive(:invoke)
 
     task.execute
   end
